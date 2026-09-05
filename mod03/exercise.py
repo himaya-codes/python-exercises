@@ -50,6 +50,13 @@ grams = total_grams % 1000
 print(f"\n The weight in modern units: {kilograms} kilograms and {grams:.2f} grams." "\n"),
 
 
+# question 6
+import random
 
+digit_3 = random.randint(0,9)
+digit_4 = random.randint(1,6)
+
+print(f"digits 3 randomg number : {digit_3}{digit_3}{digit_3}")
+print(f"digits 4 randomg number : {digit_4}{digit_4}{digit_4}{digit_4}")
 
 
