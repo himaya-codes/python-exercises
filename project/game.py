@@ -16,7 +16,7 @@ else:
         print("| Exit Mission           | lopeta   |")
         print("------------------------------------")
 
-        command = input("\nEnter a command: ")
+        command = input("\nEnter a command: ").lower()
         score = 0
         if command == "lopeta":
             print(f"\nExiting the mission. Goodbye {player_name}!\n")
