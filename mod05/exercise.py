@@ -44,8 +44,46 @@ while True:
     if guess == "":
         break
     elif guess > rand_number:
-        print("Too high.")
+        print("Too high")
     elif guess < rand_number:
         print("Too low")
     else:
         print("Correct")
+
+#Question 5
+valid_username = "python"
+valid_password = "rules"
+login_attempts = 1
+
+while login_attempts <= 5:
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+    login_attempts += 1
+
+    if username == valid_username and password == valid_password:
+        print("Welcome")
+        break
+
+else:
+    print("Access denied")
+
+#Question 6
+import random
+
+N = int(input("How many random points do you want to generate? "))
+
+n = 0
+points = 0
+
+while points < N:
+    x = random.uniform(-1, 1)
+    y = random.uniform(-1, 1)
+
+    if x**2 + y**2 < 1:
+        n += 1
+
+    points += 1
+
+pi = 4 * n / N
+
+print("Approximation of pi:", pi)
