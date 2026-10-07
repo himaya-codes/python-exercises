@@ -14,3 +14,12 @@ class Player:
         """Adds an item to player inventory."""
         self.inventory.append(item)
         print(f"\nGreat job, {self.name}! You successfully collected: {item.name}")
+
+    def show_inventory(self):
+        """Displays all collected items in player's inventory."""
+        print(f"\n--- {self.name}'s Inventory ---")
+        if not self.inventory:
+            print("Your inventory is currently empty.")
+        else:
+            for item in self.inventory:
+                print(f" - {item}")

@@ -1,0 +1,6 @@
+==================================================
+        WELCOME TO THE COOKING MISSION!           
+==================================================
+The restaurant is in chaos! Recipes are missing
+their signature ingredients. It is up to you to
+step into the kitchen and complete each dish.
