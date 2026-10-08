@@ -1,0 +1,9 @@
+{
+    "name": "himaya",
+    "age": 21,
+    "inventory": [
+        "Chicken",
+        "Apple"
+    ],
+    "location": "bake"
+}

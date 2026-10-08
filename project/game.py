@@ -11,7 +11,7 @@ def show_file_content(filename):
     file_path = os.path.join(BASE_DIR, filename)
 
     try:
-        with open(file_path, "r", encoding="utf-8") as file:  # <-- Use file_path here!
+        with open(file_path, "r", encoding="utf-8") as file:
             print(file.read())
     except FileNotFoundError:
         print(f"[Warning: '{filename}' not found.]")
@@ -20,7 +20,7 @@ def show_file_content(filename):
 
 
 def save_game_state(player):
-    """Saves the player's current progress into a JSON file named after the player."""
+    # Saves the player's current progress into a JSON file named after the player
     filename = f"{player.name.lower()}_save.json"
     save_data = {
         "name": player.name,
@@ -32,13 +32,13 @@ def save_game_state(player):
     try:
         with open(filename, "w", encoding="utf-8") as file:
             json.dump(save_data, file, indent=4)
-        print(f"\nGame successfully saved to '{filename}'!")
+        print(f"\nMission successfully saved to '{filename}'!")
     except IOError:
-        print("\nFailed to save game state.")
+        print("\nSorry!!, failed to save mission state.")
 
 
 def load_game_state(player_name, rooms):
-    """Loads a saved game state if the save file exists."""
+    # Loads a saved game state if the save file exists
     filename = f"{player_name.lower()}_save.json"
     
     if not os.path.exists(filename):
@@ -58,22 +58,21 @@ def load_game_state(player_name, rooms):
         saved_location = data.get("location")
         if saved_location in rooms:
             player.location = rooms[saved_location]
-            
-        print(f"\nWelcome back, {player.name}! Game progress loaded.")
+        print("====================================================================") 
+        print(f"\nWelcome back, {player.name}! Mission progress loaded.")
         return player
     except (IOError, json.JSONDecodeError, KeyError):
-        print("\nError loading save file. Starting a new game...")
+        print("\nError loading save file. Starting a new Mission...")
         return None
 
 
 def get_valid_age():
-    """Prompts for player age using error handling loop."""
+    # Prompts for player age using error handling loop
     while True:
-        try:
-            age = int(input("Enter your age: "))
-            return age
-        except ValueError:
-            print("Invalid input! Please enter a valid numeric age.")
+        age_input = input("Enter your age: ")
+        if age_input.isdigit():
+            return int(age_input)
+        print("Invalid input! Please enter a valid numeric age.")
 
 
 def main():
@@ -102,7 +101,15 @@ def main():
 
         # Instantiate player
         player = Player(player_name, player_age)
-        print(f"\nWelcome {player.name} to the Cooking Mission!\n")
+        print("====================================================================")
+        print(f"\nWelcome {player.name} to the Recipe Rescue Mission!\n")
+        print("  (  )   (  )   (  ) ")
+        print("  ) (    ) (    ) (  ")
+        print(" .-------------------.")
+        print(" |        The        |--.")
+        print(" |  Recipie Rescue!  |  |")
+        print(" |                   |--'")
+        print(" '-------------------'\n")
 
     # Main Game Loop
     while True:
@@ -129,12 +136,12 @@ def main():
             save_game_state(player)
 
         elif command == "move":
-            print("\n--- Available Rooms ---")
+            print("\n--- Available Kitchens ---")
             print(" 1. Bake Kitchen (bake)")
             print(" 2. Pizza Kitchen (pizza)")
             print(" 3. Pasta Kitchen (pasta)")
             
-            room_choice = input("\nWhich room would you like to enter? (bake / pizza / pasta / lopeta): ").strip().lower()
+            room_choice = input("\nWhich kitchen would you like to enter? (bake / pizza / pasta / lopeta): ").strip().lower()
 
             if room_choice == "lopeta":
                 continue
@@ -145,10 +152,10 @@ def main():
 
                 # Room Command Menu Loop
                 while True:
-                    print(f"\n--- Kitchen Options ({selected_room.dish_name}) ---")
+                    print(f"\n--- Kitchen Mission : {selected_room.dish_name} ---")
                     print("Commands:")
                     print("  collect : Find and collect missing ingredient")
-                    print("  save    : Save game progress")
+                    print("  save    : Save mission progress")
                     print("  lopeta  : Return to main menu")
                     
                     room_cmd = input("\nEnter command: ").strip().lower()
@@ -162,9 +169,11 @@ def main():
 
                     elif room_cmd == "collect":
                         selected_room.display_checklist()
+                        print(".---.")
+                        print(f"|||||  Hey {player.name}: can you help us find the missing ingredient?")
+                        print("(o_o)")                        
                         
-                        print(f"\nHey {player.name}: can you help us find the missing ingredient?")
-                        print(f"What is the missing ingredient for {selected_room.dish_name}?")
+                        print(f"\nWhat is the missing ingredient for {selected_room.dish_name}?")
                         
                         for idx, option in enumerate(selected_room.options, start=1):
                             print(f" {idx}. {option}")
@@ -182,9 +191,12 @@ def main():
                                 # Check if chosen option matches target item
                                 if chosen_name == selected_room.missing_item.name:
                                     player.collect_item(selected_room.missing_item)
-                                    print("\nUpdated Inventory:")
+                                    print("\n====================================================================")
+                                    print("Updated Inventory:")
                                     for item in player.inventory:
                                         print(f" - {item}")
+                                        print("====================================================================")
+                                                                            
                                     break
                                 else:
                                     print(f"\nIncorrect! '{chosen_name}' is not the right ingredient for {selected_room.dish_name}.")

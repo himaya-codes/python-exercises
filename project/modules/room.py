@@ -64,7 +64,7 @@ class Room:
         self.setup_random_recipe()
 
     def setup_random_recipe(self):
-        """Randomly assigns a dish and target item for this room session."""
+        #Randomly assigns a dish and target item for this room session
         recipe_data = random.choice(self.RECIPES[self.category])
         self.dish_name = recipe_data["dish"]
         self.ingredients = recipe_data["ingredients"]
@@ -72,7 +72,8 @@ class Room:
         self.options = recipe_data["options"]
 
     def display_checklist(self):
-        """Displays ingredients checklist with the missing item slot."""
+        #Displays ingredients checklist with the missing item slot
+        print("====================================================================")
         print(f"\n--- Checklist for {self.dish_name} ---")
         for ing in self.ingredients:
             print(f"- {ing}")

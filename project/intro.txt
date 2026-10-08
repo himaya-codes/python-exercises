@@ -1,6 +1,13 @@
-==================================================
-        WELCOME TO THE COOKING MISSION!           
-==================================================
-The restaurant is in chaos! Recipes are missing
-their signature ingredients. It is up to you to
-step into the kitchen and complete each dish.
+=========================================================================
+                   WELCOME TO THE COOKING MISSION!           
+=========================================================================
+
+ .---.               The restaurant is in chaos!
+ |||||     Recipes are missing with their signature ingredients.
+ (o_o)      In this Culinary game Remi, the junior chef should
+  -.-        save the day of hotel Clarion on the absence of 
+<|   |>               Master chef Gordon Ramsey.
+  ---
+
+   Now it is up to you to step into the kitchen and complete each dish.
+=========================================================================

@@ -1,8 +1,7 @@
-==================================================
-                   INSTRUCTIONS                   
-==================================================
-1. Enter your name when starting to resume a saved game!
-2. Select 'move' from the main menu to choose a kitchen.
-3. Select 'collect' to inspect a missing ingredient.
-4. Pick the correct ingredient number to add it to your inventory.
-5. Type 'save' in the main menu to save your game progress.
+                              INSTRUCTIONS                   
+=========================================================================
+        1. Enter your name when starting to resume a saved game!
+        2. Select 'move' from the main menu to choose a kitchen.
+        3. Select 'collect' to inspect a missing ingredient.
+        4. Pick the correct ingredient number to add it to your inventory.
+        5. Type 'save' in the main menu to save your game progress.
